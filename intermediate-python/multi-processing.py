@@ -10,7 +10,7 @@ print(f"cpu counts: {num_processes}")
 def square_numbers():
   for i in range(100):
     i*i
-    time.sleep(30)
+    time.sleep(0.5)
 
 # Create process
 for i in range(num_processes):
