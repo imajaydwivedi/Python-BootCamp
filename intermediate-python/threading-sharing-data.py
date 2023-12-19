@@ -6,15 +6,14 @@ database_value = 0
 def increase(lock):
   global database_value
 
-  lock.acquire()
+  #lock.acquire()
+  with lock:
+    local_value = database_value
+    local_value += 1
+    time.sleep(1)
+    database_value = local_value
 
-  local_value = database_value
-  local_value += 1
-
-  time.sleep(1)
-  database_value = local_value
-
-  lock.release()
+  #lock.release()
 
 
 if __name__ == "__main__":
